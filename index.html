@@ -4,132 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For My Baobei ❤️</title>
+    <title>Này, hôm nay bạn ổn không?</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html,
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             width: 100%;
-            height: 100%;
-        }
-
-        body {
             min-height: 100vh;
-            background: #000;
-            color: #fff;
-            font-family: Georgia, "Times New Roman", serif;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #0B1020;
+            color: #F4F1EA;
 
-            overflow: hidden;
+            font-family: "Inter", sans-serif;
 
-            opacity: 0;
-            animation: pageFadeIn 1.5s ease forwards;
-        }
-
-        /* =========================
-           MAIN CONTENT
-        ========================= */
-
-        .container {
-            position: relative;
-            z-index: 2;
-
-            text-align: center;
-            padding: 30px;
-
-            animation: contentFadeIn 2s ease forwards;
-        }
-
-        .heart {
-            font-size: 70px;
-            margin-bottom: 25px;
-
-            animation: heartbeat 1.8s ease-in-out infinite;
-        }
-
-        h1 {
-            font-size: clamp(35px, 7vw, 70px);
-            font-weight: normal;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-size: clamp(16px, 2.5vw, 20px);
-
-            color: #ccc;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 40px;
-        }
-
-        /* =========================
-           ENTER BUTTON
-        ========================= */
-
-        .button {
-            display: inline-block;
-
-            padding: 14px 35px;
-
-            border: 1px solid #fff;
-            border-radius: 30px;
-
-            color: #fff;
-            background: transparent;
-
-            text-decoration: none;
-
-            font-size: 16px;
-            letter-spacing: 2px;
-
-            cursor: pointer;
+            overflow-x: hidden;
+            overflow-y: auto;
 
             transition:
-                background 0.4s ease,
-                color 0.4s ease,
-                transform 0.4s ease,
-                box-shadow 0.4s ease;
+                background 1.2s ease,
+                filter 1.2s ease;
         }
 
-        .button:hover {
-            background: #fff;
-            color: #000;
 
-            transform: scale(1.08);
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
 
-            box-shadow:
-                0 0 15px rgba(255, 255, 255, 0.5),
-                0 0 30px rgba(255, 255, 255, 0.2);
-        }
-
-        .button:active {
-            transform: scale(0.96);
-        }
-
-        /* =========================
-           STARS
-        ========================= */
-
-        .stars {
+        .background {
             position: fixed;
             inset: 0;
+
+            overflow: hidden;
 
             pointer-events: none;
 
             z-index: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(167, 139, 250, 0.08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(125, 211, 252, 0.05),
+                    transparent 30%
+                ),
+                #0B1020;
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        .stars {
+            position: absolute;
+            inset: 0;
         }
 
         .star {
@@ -138,185 +93,816 @@
             width: 2px;
             height: 2px;
 
-            background: #fff;
+            background: #ffffff;
 
             border-radius: 50%;
 
-            opacity: 0.7;
+            opacity: 0;
 
-            animation: twinkle 3s ease-in-out infinite alternate;
+            animation:
+                starAppear 2s ease forwards,
+                starTwinkle 4s ease-in-out infinite alternate;
         }
 
-        /* =========================
+        .star:nth-child(1) {
+            top: 12%;
+            left: 15%;
+            animation-delay: 0.2s, 2s;
+        }
+
+        .star:nth-child(2) {
+            top: 20%;
+            left: 78%;
+            animation-delay: 0.5s, 3s;
+        }
+
+        .star:nth-child(3) {
+            top: 32%;
+            left: 27%;
+            animation-delay: 0.8s, 1s;
+        }
+
+        .star:nth-child(4) {
+            top: 48%;
+            left: 85%;
+            animation-delay: 1s, 2.5s;
+        }
+
+        .star:nth-child(5) {
+            top: 65%;
+            left: 12%;
+            animation-delay: 1.2s, 1.5s;
+        }
+
+        .star:nth-child(6) {
+            top: 74%;
+            left: 72%;
+            animation-delay: 1.5s, 3.5s;
+        }
+
+        .star:nth-child(7) {
+            top: 82%;
+            left: 40%;
+            animation-delay: 1.7s, 2s;
+        }
+
+        .star:nth-child(8) {
+            top: 15%;
+            left: 52%;
+            animation-delay: 2s, 1s;
+        }
+
+        .star:nth-child(9) {
+            top: 43%;
+            left: 63%;
+            animation-delay: 0.7s, 3s;
+        }
+
+        .star:nth-child(10) {
+            top: 88%;
+            left: 84%;
+            animation-delay: 1.4s, 2.5s;
+        }
+
+        .star:nth-child(11) {
+            top: 57%;
+            left: 33%;
+            animation-delay: 1.8s, 1.5s;
+        }
+
+        .star:nth-child(12) {
+            top: 27%;
+            left: 92%;
+            animation-delay: 0.4s, 3.5s;
+        }
+
+
+        /* =====================================================
+           MOON
+        ===================================================== */
+
+        .moon {
+            position: absolute;
+
+            top: 9%;
+            left: 50%;
+
+            width: 75px;
+            height: 75px;
+
+            transform:
+                translateX(-50%)
+                translateY(-30px);
+
+            border-radius: 50%;
+
+            background: #F4F1EA;
+
+            opacity: 0;
+
+            box-shadow:
+                0 0 25px rgba(244, 241, 234, 0.18),
+                0 0 60px rgba(167, 139, 250, 0.08);
+
+            animation:
+                moonAppear 2s ease 1.3s forwards,
+                moonFloat 7s ease-in-out 3.3s infinite;
+        }
+
+
+        /* Moon shadow */
+
+        .moon::after {
+            content: "";
+
+            position: absolute;
+
+            width: 75px;
+            height: 75px;
+
+            top: -8px;
+            left: 17px;
+
+            border-radius: 50%;
+
+            background: #0B1020;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                140px 24px
+                100px;
+        }
+
+
+        .content {
+            width: 100%;
+            max-width: 760px;
+        }
+
+
+        /* =====================================================
+           SMALL INTRO
+        ===================================================== */
+
+        .hello {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(
+                24px,
+                4vw,
+                34px
+            );
+
+            color: #AEB6CC;
+
+            margin-bottom: 14px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            animation:
+                textAppear 1.2s ease 2.4s forwards;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        h1 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: clamp(
+                42px,
+                8vw,
+                78px
+            );
+
+            line-height: 1.15;
+
+            letter-spacing: -1px;
+
+            color: #F4F1EA;
+
+            margin-bottom: 35px;
+
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            animation:
+                titleAppear 1.4s
+                cubic-bezier(.2,.8,.2,1)
+                2.7s
+                forwards;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .description {
+            max-width: 560px;
+
+            margin: 0 auto;
+
+            color: #AEB6CC;
+
+            font-size: clamp(
+                15px,
+                2vw,
+                18px
+            );
+
+            line-height: 2;
+
+            font-weight: 300;
+
+            letter-spacing: 0.3px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            animation:
+                textAppear 1.2s ease 3.5s forwards;
+        }
+
+
+        .description span {
+            display: block;
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .enter-wrapper {
+            margin-top: 48px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            animation:
+                buttonAppear 1.2s ease 4.3s forwards;
+        }
+
+
+        .enter-button {
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            min-width: 190px;
+
+            padding: 15px 30px;
+
+            border: 1px solid
+                rgba(167, 139, 250, 0.5);
+
+            border-radius: 50px;
+
+            background:
+                rgba(167, 139, 250, 0.04);
+
+            color: #F4F1EA;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            letter-spacing: 1.5px;
+
+            transition:
+                transform 0.4s ease,
+                background 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .enter-button::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -5px;
+
+            border-radius: 50px;
+
+            border: 1px solid
+                rgba(167, 139, 250, 0.08);
+
+            opacity: 0;
+
+            transition: opacity 0.4s ease;
+        }
+
+
+        .enter-button:hover {
+            transform: translateY(-3px);
+
+            background:
+                rgba(167, 139, 250, 0.12);
+
+            border-color:
+                rgba(167, 139, 250, 0.9);
+
+            box-shadow:
+                0 0 25px
+                rgba(167, 139, 250, 0.15);
+        }
+
+
+        .enter-button:hover::before {
+            opacity: 1;
+        }
+
+
+        .arrow {
+            opacity: 0;
+
+            transform: translateX(-6px);
+
+            transition:
+                opacity 0.4s ease,
+                transform 0.4s ease;
+        }
+
+
+        .enter-button:hover .arrow {
+            opacity: 1;
+
+            transform: translateX(0);
+        }
+
+
+        /* =====================================================
+           SCROLL INDICATOR
+        ===================================================== */
+
+        .scroll-indicator {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #AEB6CC;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            opacity: 0;
+
+            animation:
+                scrollAppear 1s ease 5s forwards;
+        }
+
+
+        .scroll-arrow {
+            width: 8px;
+            height: 8px;
+
+            border-right: 1px solid #A78BFA;
+            border-bottom: 1px solid #A78BFA;
+
+            transform: rotate(45deg);
+
+            animation:
+                scrollMove 2s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
            PAGE TRANSITION
-        ========================= */
+        ===================================================== */
 
-        body.fade-out {
-            animation: pageFadeOut 0.8s ease forwards;
+        .page-transition {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background: #0B1020;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.8s ease;
         }
 
-        /* =========================
-           ANIMATIONS
-        ========================= */
 
-        @keyframes pageFadeIn {
+        body.leaving .page-transition {
+            opacity: 1;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes starAppear {
+
             from {
                 opacity: 0;
             }
 
             to {
-                opacity: 1;
+                opacity: 0.7;
             }
+
         }
 
-        @keyframes contentFadeIn {
+
+        @keyframes starTwinkle {
+
+            from {
+                transform: scale(0.7);
+                opacity: 0.25;
+            }
+
+            to {
+                transform: scale(1.4);
+                opacity: 0.9;
+            }
+
+        }
+
+
+        @keyframes moonAppear {
+
             from {
                 opacity: 0;
-                transform: translateY(25px);
+                transform:
+                    translateX(-50%)
+                    translateY(-30px)
+                    scale(0.85);
+            }
+
+            to {
+                opacity: 0.95;
+                transform:
+                    translateX(-50%)
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes moonFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateX(-50%)
+                    translateY(-8px);
+            }
+
+        }
+
+
+        @keyframes textAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
-        @keyframes heartbeat {
+
+        @keyframes titleAppear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(25px)
+                    scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes buttonAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes scrollAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.55;
+            }
+
+        }
+
+
+        @keyframes scrollMove {
+
             0%,
             100% {
-                transform: scale(1);
+                transform:
+                    rotate(45deg)
+                    translate(0, 0);
             }
 
             50% {
-                transform: scale(1.15);
+                transform:
+                    rotate(45deg)
+                    translate(4px, 4px);
             }
+
         }
 
-        @keyframes twinkle {
-            from {
-                opacity: 0.2;
-                transform: scale(0.8);
-            }
 
-            to {
-                opacity: 1;
-                transform: scale(1.3);
-            }
-        }
-
-        @keyframes pageFadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-            }
-        }
-
-        /* =========================
+        /* =====================================================
            MOBILE
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 600px) {
 
-            .container {
-                padding: 20px;
+            .moon {
+                width: 60px;
+                height: 60px;
+
+                top: 8%;
             }
 
-            .heart {
-                font-size: 55px;
-                margin-bottom: 20px;
+            .moon::after {
+                width: 60px;
+                height: 60px;
+
+                left: 14px;
+
+                top: -6px;
+            }
+
+            main {
+                padding:
+                    130px 24px
+                    100px;
             }
 
             h1 {
-                letter-spacing: 2px;
+                font-size: 43px;
+
+                letter-spacing: -0.5px;
             }
 
-            .subtitle {
-                line-height: 1.6;
-                margin-bottom: 30px;
+            .description {
+                font-size: 15px;
+
+                line-height: 1.9;
             }
 
-            .button {
-                padding: 13px 30px;
+            .enter-wrapper {
+                margin-top: 40px;
             }
+
+            .enter-button {
+                min-width: 180px;
+
+                padding:
+                    14px 25px;
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
-         BACKGROUND STARS
-    ========================= -->
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
 
-    <div class="stars">
+    <div class="background">
 
-        <span class="star" style="top:10%; left:15%;"></span>
-        <span class="star" style="top:20%; left:80%;"></span>
-        <span class="star" style="top:35%; left:30%;"></span>
-        <span class="star" style="top:50%; left:70%;"></span>
-        <span class="star" style="top:65%; left:15%;"></span>
-        <span class="star" style="top:75%; left:85%;"></span>
-        <span class="star" style="top:85%; left:40%;"></span>
-        <span class="star" style="top:15%; left:55%;"></span>
-        <span class="star" style="top:45%; left:90%;"></span>
-        <span class="star" style="top:80%; left:65%;"></span>
+        <div class="stars">
+
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+
+        </div>
+
+
+        <div class="moon"></div>
 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          MAIN CONTENT
-    ========================= -->
+    ===================================================== -->
 
-    <main class="container">
+    <main>
 
-        <div class="heart">
-            ♡
+        <section class="content">
+
+            <div class="hello">
+                Này...
+            </div>
+
+
+            <h1>
+                Hôm nay bạn<br>
+                ổn không?
+            </h1>
+
+
+            <div class="description">
+
+                <span>
+                    Có thể hôm nay hơi mệt.
+                </span>
+
+                <span>
+                    Có thể công việc hơi nhiều.
+                </span>
+
+                <span>
+                    Hoặc có thể bạn chỉ cần
+                </span>
+
+                <span>
+                    nghỉ một chút.
+                </span>
+
+            </div>
+
+
+            <div class="enter-wrapper">
+
+                <a
+                    href="health.html"
+                    class="enter-button"
+                    id="enterButton"
+                >
+
+                    <span>
+                        ♡ Vào một chút
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SCROLL
+        ================================================== -->
+
+        <div class="scroll-indicator">
+
+            <span>
+                scroll nhẹ
+            </span>
+
+            <span class="scroll-arrow"></span>
+
         </div>
-
-        <h1>
-            For My Baobei
-        </h1>
-
-        <div class="subtitle">
-            A little place made just for you, Sam.
-        </div>
-
-        <a
-            href="story.html"
-            class="button"
-            id="enterButton"
-        >
-            Enter
-        </a>
 
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          PAGE TRANSITION
-    ========================= -->
+    ===================================================== -->
+
+    <div class="page-transition"></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
     <script>
 
-        const enterButton = document.getElementById("enterButton");
+        const enterButton =
+            document.getElementById("enterButton");
 
-        enterButton.addEventListener("click", function(event) {
+        const body =
+            document.body;
 
-            event.preventDefault();
 
-            document.body.classList.add("fade-out");
+        enterButton.addEventListener(
+            "click",
+            function(event) {
 
-            setTimeout(function() {
+                event.preventDefault();
 
-                window.location.href = "story.html";
+                body.classList.add("leaving");
 
-            }, 800);
+                setTimeout(
+                    function() {
 
-        });
+                        window.location.href =
+                            "health.html";
+
+                    },
+                    800
+                );
+
+            }
+        );
+
 
     </script>
 
