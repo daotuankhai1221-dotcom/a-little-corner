@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Này, hôm nay bạn ổn không?</title>
+    <title>For Sam ♡</title>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -16,10 +17,6 @@
     >
 
     <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
 
         * {
             margin: 0;
@@ -40,18 +37,15 @@
 
             font-family: "Inter", sans-serif;
 
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow: hidden;
 
-            transition:
-                background 1.2s ease,
-                filter 1.2s ease;
+            transition: filter 1s ease;
         }
 
 
-        /* =====================================================
+        /* =========================================
            BACKGROUND
-        ===================================================== */
+        ========================================= */
 
         .background {
             position: fixed;
@@ -78,9 +72,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================
            STARS
-        ===================================================== */
+        ========================================= */
 
         .stars {
             position: absolute;
@@ -93,7 +87,7 @@
             width: 2px;
             height: 2px;
 
-            background: #ffffff;
+            background: white;
 
             border-radius: 50%;
 
@@ -107,19 +101,19 @@
         .star:nth-child(1) {
             top: 12%;
             left: 15%;
-            animation-delay: 0.2s, 2s;
+            animation-delay: .2s, 2s;
         }
 
         .star:nth-child(2) {
             top: 20%;
             left: 78%;
-            animation-delay: 0.5s, 3s;
+            animation-delay: .5s, 3s;
         }
 
         .star:nth-child(3) {
             top: 32%;
             left: 27%;
-            animation-delay: 0.8s, 1s;
+            animation-delay: .8s, 1s;
         }
 
         .star:nth-child(4) {
@@ -155,7 +149,7 @@
         .star:nth-child(9) {
             top: 43%;
             left: 63%;
-            animation-delay: 0.7s, 3s;
+            animation-delay: .7s, 3s;
         }
 
         .star:nth-child(10) {
@@ -173,13 +167,13 @@
         .star:nth-child(12) {
             top: 27%;
             left: 92%;
-            animation-delay: 0.4s, 3.5s;
+            animation-delay: .4s, 3.5s;
         }
 
 
-        /* =====================================================
+        /* =========================================
            MOON
-        ===================================================== */
+        ========================================= */
 
         .moon {
             position: absolute;
@@ -201,16 +195,13 @@
             opacity: 0;
 
             box-shadow:
-                0 0 25px rgba(244, 241, 234, 0.18),
-                0 0 60px rgba(167, 139, 250, 0.08);
+                0 0 25px rgba(244,241,234,.18),
+                0 0 60px rgba(167,139,250,.08);
 
             animation:
                 moonAppear 2s ease 1.3s forwards,
                 moonFloat 7s ease-in-out 3.3s infinite;
         }
-
-
-        /* Moon shadow */
 
         .moon::after {
             content: "";
@@ -229,9 +220,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================
            MAIN
-        ===================================================== */
+        ========================================= */
 
         main {
             position: relative;
@@ -253,25 +244,23 @@
                 100px;
         }
 
-
         .content {
             width: 100%;
             max-width: 760px;
         }
 
 
-        /* =====================================================
-           SMALL INTRO
-        ===================================================== */
+        /* =========================================
+           HELLO
+        ========================================= */
 
         .hello {
-            font-family: "Playfair Display", serif;
+            font-family:
+                "Playfair Display",
+                serif;
 
-            font-size: clamp(
-                24px,
-                4vw,
-                34px
-            );
+            font-size:
+                clamp(24px, 4vw, 34px);
 
             color: #AEB6CC;
 
@@ -282,24 +271,27 @@
             transform: translateY(20px);
 
             animation:
-                textAppear 1.2s ease 2.4s forwards;
+                textAppear
+                1.2s
+                ease
+                2.4s
+                forwards;
         }
 
 
-        /* =====================================================
+        /* =========================================
            TITLE
-        ===================================================== */
+        ========================================= */
 
         h1 {
-            font-family: "Playfair Display", serif;
+            font-family:
+                "Playfair Display",
+                serif;
 
             font-weight: 400;
 
-            font-size: clamp(
-                42px,
-                8vw,
-                78px
-            );
+            font-size:
+                clamp(42px, 8vw, 78px);
 
             line-height: 1.15;
 
@@ -314,16 +306,17 @@
             transform: translateY(25px);
 
             animation:
-                titleAppear 1.4s
+                titleAppear
+                1.4s
                 cubic-bezier(.2,.8,.2,1)
                 2.7s
                 forwards;
         }
 
 
-        /* =====================================================
+        /* =========================================
            DESCRIPTION
-        ===================================================== */
+        ========================================= */
 
         .description {
             max-width: 560px;
@@ -332,35 +325,35 @@
 
             color: #AEB6CC;
 
-            font-size: clamp(
-                15px,
-                2vw,
-                18px
-            );
+            font-size:
+                clamp(15px, 2vw, 18px);
 
             line-height: 2;
 
             font-weight: 300;
 
-            letter-spacing: 0.3px;
+            letter-spacing: .3px;
 
             opacity: 0;
 
             transform: translateY(20px);
 
             animation:
-                textAppear 1.2s ease 3.5s forwards;
+                textAppear
+                1.2s
+                ease
+                3.5s
+                forwards;
         }
-
 
         .description span {
             display: block;
         }
 
 
-        /* =====================================================
+        /* =========================================
            BUTTON
-        ===================================================== */
+        ========================================= */
 
         .enter-wrapper {
             margin-top: 48px;
@@ -370,9 +363,12 @@
             transform: translateY(20px);
 
             animation:
-                buttonAppear 1.2s ease 4.3s forwards;
+                buttonAppear
+                1.2s
+                ease
+                4.3s
+                forwards;
         }
-
 
         .enter-button {
             position: relative;
@@ -388,13 +384,14 @@
 
             padding: 15px 30px;
 
-            border: 1px solid
-                rgba(167, 139, 250, 0.5);
+            border:
+                1px solid
+                rgba(167,139,250,.5);
 
             border-radius: 50px;
 
             background:
-                rgba(167, 139, 250, 0.04);
+                rgba(167,139,250,.04);
 
             color: #F4F1EA;
 
@@ -405,12 +402,11 @@
             letter-spacing: 1.5px;
 
             transition:
-                transform 0.4s ease,
-                background 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+                transform .4s ease,
+                background .4s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
         }
-
 
         .enter-button::before {
             content: "";
@@ -421,34 +417,33 @@
 
             border-radius: 50px;
 
-            border: 1px solid
-                rgba(167, 139, 250, 0.08);
+            border:
+                1px solid
+                rgba(167,139,250,.08);
 
             opacity: 0;
 
-            transition: opacity 0.4s ease;
+            transition:
+                opacity .4s ease;
         }
-
 
         .enter-button:hover {
             transform: translateY(-3px);
 
             background:
-                rgba(167, 139, 250, 0.12);
+                rgba(167,139,250,.12);
 
             border-color:
-                rgba(167, 139, 250, 0.9);
+                rgba(167,139,250,.9);
 
             box-shadow:
                 0 0 25px
-                rgba(167, 139, 250, 0.15);
+                rgba(167,139,250,.15);
         }
-
 
         .enter-button:hover::before {
             opacity: 1;
         }
-
 
         .arrow {
             opacity: 0;
@@ -456,21 +451,21 @@
             transform: translateX(-6px);
 
             transition:
-                opacity 0.4s ease,
-                transform 0.4s ease;
+                opacity .4s ease,
+                transform .4s ease;
         }
-
 
         .enter-button:hover .arrow {
             opacity: 1;
 
-            transform: translateX(0);
+            transform:
+                translateX(0);
         }
 
 
-        /* =====================================================
-           SCROLL INDICATOR
-        ===================================================== */
+        /* =========================================
+           SCROLL
+        ========================================= */
 
         .scroll-indicator {
             position: absolute;
@@ -498,27 +493,37 @@
             opacity: 0;
 
             animation:
-                scrollAppear 1s ease 5s forwards;
+                scrollAppear
+                1s
+                ease
+                5s
+                forwards;
         }
-
 
         .scroll-arrow {
             width: 8px;
             height: 8px;
 
-            border-right: 1px solid #A78BFA;
-            border-bottom: 1px solid #A78BFA;
+            border-right:
+                1px solid #A78BFA;
 
-            transform: rotate(45deg);
+            border-bottom:
+                1px solid #A78BFA;
+
+            transform:
+                rotate(45deg);
 
             animation:
-                scrollMove 2s ease-in-out infinite;
+                scrollMove
+                2s
+                ease-in-out
+                infinite;
         }
 
 
-        /* =====================================================
+        /* =========================================
            PAGE TRANSITION
-        ===================================================== */
+        ========================================= */
 
         .page-transition {
             position: fixed;
@@ -534,18 +539,17 @@
             pointer-events: none;
 
             transition:
-                opacity 0.8s ease;
+                opacity .8s ease;
         }
-
 
         body.leaving .page-transition {
             opacity: 1;
         }
 
 
-        /* =====================================================
+        /* =========================================
            ANIMATIONS
-        ===================================================== */
+        ========================================= */
 
         @keyframes starAppear {
 
@@ -554,39 +558,39 @@
             }
 
             to {
-                opacity: 0.7;
+                opacity: .7;
             }
 
         }
-
 
         @keyframes starTwinkle {
 
             from {
-                transform: scale(0.7);
-                opacity: 0.25;
+                transform: scale(.7);
+                opacity: .25;
             }
 
             to {
                 transform: scale(1.4);
-                opacity: 0.9;
+                opacity: .9;
             }
 
         }
-
 
         @keyframes moonAppear {
 
             from {
                 opacity: 0;
+
                 transform:
                     translateX(-50%)
                     translateY(-30px)
-                    scale(0.85);
+                    scale(.85);
             }
 
             to {
-                opacity: 0.95;
+                opacity: .95;
+
                 transform:
                     translateX(-50%)
                     translateY(0)
@@ -595,11 +599,9 @@
 
         }
 
-
         @keyframes moonFloat {
 
-            0%,
-            100% {
+            0%, 100% {
                 transform:
                     translateX(-50%)
                     translateY(0);
@@ -613,33 +615,35 @@
 
         }
 
-
         @keyframes textAppear {
 
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform:
+                    translateY(20px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
 
         }
-
 
         @keyframes titleAppear {
 
             from {
                 opacity: 0;
+
                 transform:
                     translateY(25px)
-                    scale(0.98);
+                    scale(.98);
             }
 
             to {
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
@@ -647,21 +651,21 @@
 
         }
 
-
         @keyframes buttonAppear {
 
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform:
+                    translateY(20px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
 
         }
-
 
         @keyframes scrollAppear {
 
@@ -670,40 +674,37 @@
             }
 
             to {
-                opacity: 0.55;
+                opacity: .55;
             }
 
         }
 
-
         @keyframes scrollMove {
 
-            0%,
-            100% {
+            0%, 100% {
                 transform:
                     rotate(45deg)
-                    translate(0, 0);
+                    translate(0,0);
             }
 
             50% {
                 transform:
                     rotate(45deg)
-                    translate(4px, 4px);
+                    translate(4px,4px);
             }
 
         }
 
 
-        /* =====================================================
+        /* =========================================
            MOBILE
-        ===================================================== */
+        ========================================= */
 
-        @media (max-width: 600px) {
+        @media (max-width:600px) {
 
             .moon {
                 width: 60px;
                 height: 60px;
-
                 top: 8%;
             }
 
@@ -712,7 +713,6 @@
                 height: 60px;
 
                 left: 14px;
-
                 top: -6px;
             }
 
@@ -724,13 +724,11 @@
 
             h1 {
                 font-size: 43px;
-
-                letter-spacing: -0.5px;
+                letter-spacing: -.5px;
             }
 
             .description {
                 font-size: 15px;
-
                 line-height: 1.9;
             }
 
@@ -740,22 +738,20 @@
 
             .enter-button {
                 min-width: 180px;
-
                 padding:
                     14px 25px;
             }
-
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- =====================================================
-         BACKGROUND
-    ===================================================== -->
+
+    <!-- BACKGROUND -->
 
     <div class="background">
 
@@ -782,21 +778,20 @@
     </div>
 
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ===================================================== -->
+    <!-- MAIN -->
 
     <main>
 
         <section class="content">
 
+
             <div class="hello">
-                Này...
+                Này, Sam...
             </div>
 
 
             <h1>
-                Hôm nay bạn<br>
+                Hôm nay em bé<br>
                 ổn không?
             </h1>
 
@@ -812,7 +807,7 @@
                 </span>
 
                 <span>
-                    Hoặc có thể bạn chỉ cần
+                    Hoặc có thể baobei chỉ cần
                 </span>
 
                 <span>
@@ -845,10 +840,6 @@
         </section>
 
 
-        <!-- =================================================
-             SCROLL
-        ================================================== -->
-
         <div class="scroll-indicator">
 
             <span>
@@ -862,24 +853,19 @@
     </main>
 
 
-    <!-- =====================================================
-         PAGE TRANSITION
-    ===================================================== -->
+    <!-- TRANSITION -->
 
     <div class="page-transition"></div>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
         const enterButton =
-            document.getElementById("enterButton");
-
-        const body =
-            document.body;
+            document.getElementById(
+                "enterButton"
+            );
 
 
         enterButton.addEventListener(
@@ -888,7 +874,11 @@
 
                 event.preventDefault();
 
-                body.classList.add("leaving");
+
+                document.body
+                    .classList
+                    .add("leaving");
+
 
                 setTimeout(
                     function() {
@@ -903,8 +893,9 @@
             }
         );
 
-
     </script>
 
+
 </body>
+
 </html>
