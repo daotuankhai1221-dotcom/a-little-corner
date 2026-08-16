@@ -10,17 +10,12 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Chăm sóc bản thân một chút nhé</title>
+    <title>Baobei, chăm sóc bản thân một chút nhé</title>
 
 
-    <!-- =========================
-         FONTS
-    ========================== -->
+    <!-- Fonts -->
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
         rel="preconnect"
@@ -35,10 +30,6 @@
 
 
     <style>
-
-        /* =========================================
-           RESET
-        ========================================= */
 
         * {
             margin: 0;
@@ -60,7 +51,9 @@
 
             color: #F4F1EA;
 
-            font-family: "Inter", sans-serif;
+            font-family:
+                "Inter",
+                sans-serif;
 
             overflow-x: hidden;
 
@@ -90,23 +83,29 @@
 
                 radial-gradient(
                     circle at 50% 20%,
-                    rgba(125, 211, 252, 0.07),
+                    rgba(
+                        125,
+                        211,
+                        252,
+                        .07
+                    ),
                     transparent 35%
                 ),
 
                 radial-gradient(
                     circle at 20% 70%,
-                    rgba(167, 139, 250, 0.08),
+                    rgba(
+                        167,
+                        139,
+                        250,
+                        .08
+                    ),
                     transparent 35%
                 ),
 
                 #0B1020;
         }
 
-
-        /* =========================================
-           GLOW
-        ========================================= */
 
         .glow {
 
@@ -118,14 +117,20 @@
             border-radius: 50%;
 
             background:
-                rgba(167, 139, 250, 0.035);
+                rgba(
+                    167,
+                    139,
+                    250,
+                    .035
+                );
 
             filter: blur(80px);
 
             top: 20%;
             left: 50%;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
             animation:
                 glowFloat
@@ -156,17 +161,18 @@
             width: 2px;
             height: 2px;
 
-            background: #fff;
+            background: white;
 
             border-radius: 50%;
 
-            opacity: 0.3;
+            opacity: .3;
 
             animation:
                 twinkle
                 4s
                 ease-in-out
-                infinite alternate;
+                infinite
+                alternate;
         }
 
 
@@ -190,7 +196,7 @@
         .star:nth-child(4) {
             top: 55%;
             left: 90%;
-            animation-delay: 0.5s;
+            animation-delay: .5s;
         }
 
         .star:nth-child(5) {
@@ -252,7 +258,7 @@
                 fadeUp
                 1s
                 ease
-                0.3s
+                .3s
                 forwards;
         }
 
@@ -282,7 +288,7 @@
                 fadeUp
                 1.2s
                 ease
-                0.6s
+                .6s
                 forwards;
         }
 
@@ -303,7 +309,7 @@
                 fadeUp
                 1.2s
                 ease
-                0.9s
+                .9s
                 forwards;
         }
 
@@ -317,10 +323,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(
-                    2,
-                    1fr
-                );
+                repeat(2, 1fr);
 
             gap: 22px;
         }
@@ -339,7 +342,7 @@
                     24,
                     32,
                     57,
-                    0.55
+                    .55
                 );
 
             border:
@@ -348,7 +351,7 @@
                     167,
                     139,
                     250,
-                    0.10
+                    .10
                 );
 
             border-radius: 22px;
@@ -357,10 +360,10 @@
                 blur(12px);
 
             transition:
-                transform 0.5s ease,
-                border-color 0.5s ease,
-                background 0.5s ease,
-                box-shadow 0.5s ease;
+                transform .5s ease,
+                border-color .5s ease,
+                background .5s ease,
+                box-shadow .5s ease;
 
             opacity: 0;
 
@@ -423,7 +426,7 @@
                     167,
                     139,
                     250,
-                    0.35
+                    .35
                 );
 
             background:
@@ -431,7 +434,7 @@
                     24,
                     32,
                     57,
-                    0.8
+                    .8
                 );
 
             box-shadow:
@@ -441,7 +444,7 @@
                     0,
                     0,
                     0,
-                    0.25
+                    .25
                 ),
 
                 0 0 25px
@@ -449,7 +452,7 @@
                     167,
                     139,
                     250,
-                    0.06
+                    .06
                 );
         }
 
@@ -489,14 +492,43 @@
 
 
         /* =========================================
-           FINAL BUTTON
+           FINAL MESSAGE
+        ========================================= */
+
+        .small-message {
+
+            text-align: center;
+
+            margin-top: 60px;
+
+            color: #AEB6CC;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 18px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                2.2s
+                forwards;
+        }
+
+
+        /* =========================================
+           NEXT BUTTON
         ========================================= */
 
         .next-section {
 
             text-align: center;
 
-            margin-top: 75px;
+            margin-top: 30px;
 
             opacity: 0;
 
@@ -526,7 +558,7 @@
                     125,
                     211,
                     252,
-                    0.35
+                    .35
                 );
 
             border-radius: 50px;
@@ -536,7 +568,7 @@
                     125,
                     211,
                     252,
-                    0.03
+                    .03
                 );
 
             color: #F4F1EA;
@@ -548,7 +580,7 @@
             letter-spacing: 1px;
 
             transition:
-                all 0.4s ease;
+                all .4s ease;
         }
 
 
@@ -562,7 +594,7 @@
                     125,
                     211,
                     252,
-                    0.08
+                    .08
                 );
 
             border-color:
@@ -570,7 +602,7 @@
                     125,
                     211,
                     252,
-                    0.8
+                    .8
                 );
 
             box-shadow:
@@ -579,13 +611,13 @@
                     125,
                     211,
                     252,
-                    0.1
+                    .1
                 );
         }
 
 
         /* =========================================
-           TRANSITION
+           PAGE TRANSITION
         ========================================= */
 
         .transition {
@@ -604,7 +636,7 @@
             pointer-events: none;
 
             transition:
-                opacity 0.8s ease;
+                opacity .8s ease;
         }
 
 
@@ -659,7 +691,7 @@
 
                 transform:
                     translateY(35px)
-                    scale(0.98);
+                    scale(.98);
             }
 
             to {
@@ -677,15 +709,15 @@
 
             from {
 
-                opacity: 0.15;
+                opacity: .15;
 
                 transform:
-                    scale(0.7);
+                    scale(.7);
             }
 
             to {
 
-                opacity: 0.8;
+                opacity: .8;
 
                 transform:
                     scale(1.3);
@@ -701,7 +733,6 @@
                 transform:
                     translateX(-50%)
                     translateY(0);
-
             }
 
             50% {
@@ -709,7 +740,6 @@
                 transform:
                     translateX(-50%)
                     translateY(-30px);
-
             }
         }
 
@@ -718,8 +748,7 @@
            MOBILE
         ========================================= */
 
-        @media
-        (max-width: 700px) {
+        @media (max-width:700px) {
 
             main {
 
@@ -769,9 +798,7 @@
 <body>
 
 
-    <!-- =========================================
-         BACKGROUND
-    ========================================= -->
+    <!-- BACKGROUND -->
 
     <div class="background">
 
@@ -792,14 +819,10 @@
     </div>
 
 
-    <!-- =========================================
-         MAIN
-    ========================================= -->
+    <!-- MAIN -->
 
     <main>
 
-
-        <!-- HERO -->
 
         <section class="hero">
 
@@ -810,7 +833,7 @@
 
             <h1>
 
-                Chăm sóc bản thân
+                Baobei, chăm sóc bản thân
 
                 <br>
 
@@ -821,27 +844,23 @@
 
             <p>
 
-                Bạn thường quan tâm đến
+                Em bé thường quan tâm đến
                 mọi thứ xung quanh mình...
 
                 <br>
 
-                Nhưng đôi khi lại quên
-                mất chính mình.
+                Nhưng đôi khi lại quên mất
+                chính mình.
 
             </p>
 
         </section>
 
 
-        <!-- =====================================
-             CARDS
-        ====================================== -->
+        <!-- CARDS -->
 
         <section class="cards">
 
-
-            <!-- CARD 1 -->
 
             <article class="card">
 
@@ -860,12 +879,14 @@
                     Đừng đợi đến lúc khát
                     mới nhớ đến bản thân nhé.
 
+                    <br><br>
+
+                    Sam nhớ uống một chút nha.
+
                 </p>
 
             </article>
 
-
-            <!-- CARD 2 -->
 
             <article class="card">
 
@@ -884,12 +905,15 @@
                     Bận đến đâu thì cũng
                     nhớ ăn một chút nhé.
 
+                    <br><br>
+
+                    Công việc có thể chờ,
+                    bữa ăn thì đừng bỏ qua.
+
                 </p>
 
             </article>
 
-
-            <!-- CARD 3 -->
 
             <article class="card">
 
@@ -909,15 +933,13 @@
 
                     <br>
 
-                    Bạn cũng cần thời gian
+                    Baobei cũng cần thời gian
                     để hồi phục.
 
                 </p>
 
             </article>
 
-
-            <!-- CARD 4 -->
 
             <article class="card">
 
@@ -934,7 +956,7 @@
                 <p>
 
                     Nếu cơ thể đang nói
-                    rằng nó mệt,
+                    rằng em bé mệt,
 
                     <br>
 
@@ -948,9 +970,13 @@
         </section>
 
 
-        <!-- =====================================
-             NEXT
-        ====================================== -->
+        <div class="small-message">
+
+            Không cần phải cố gắng
+            mọi lúc đâu, Sam.
+
+        </div>
+
 
         <section class="next-section">
 
@@ -976,16 +1002,12 @@
     </main>
 
 
-    <!-- =========================================
-         PAGE TRANSITION
-    ========================================= -->
+    <!-- TRANSITION -->
 
     <div class="transition"></div>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
