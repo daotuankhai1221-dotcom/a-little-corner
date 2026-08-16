@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ở đây một chút nhé, Sam</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: #0B1020;
+            color: #F4F1EA;
+
+            font-family: "Inter", sans-serif;
+
+            overflow-x: hidden;
+
+            opacity: 0;
+
+            animation:
+                pageEnter 1.5s ease forwards;
+        }
+
+
+        /* =========================================
+           BACKGROUND
+        ========================================== */
+
+        .background {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -10;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(167,139,250,.10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(125,211,252,.06),
+                    transparent 30%
+                ),
+                #0B1020;
+        }
+
+
+        /* =========================================
+           SOFT GLOW
+        ========================================== */
+
+        .glow {
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(167,139,250,.035);
+
+            filter: blur(100px);
+
+            top: 35%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            animation:
+                glowMove
+                10s
+                ease-in-out
+                infinite;
+        }
+
+
+        /* =========================================
+           STARS
+        ========================================== */
+
+        .stars {
+            position: absolute;
+
+            inset: 0;
+        }
+
+        .star {
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: .25;
+
+            animation:
+                twinkle
+                4s
+                ease-in-out
+                infinite alternate;
+        }
+
+        .star:nth-child(1) {
+            top: 12%;
+            left: 14%;
+        }
+
+        .star:nth-child(2) {
+            top: 18%;
+            left: 76%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3) {
+            top: 30%;
+            left: 35%;
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(4) {
+            top: 42%;
+            left: 88%;
+            animation-delay: .5s;
+        }
+
+        .star:nth-child(5) {
+            top: 58%;
+            left: 12%;
+            animation-delay: 1.5s;
+        }
+
+        .star:nth-child(6) {
+            top: 70%;
+            left: 82%;
+            animation-delay: 2.5s;
+        }
+
+        .star:nth-child(7) {
+            top: 82%;
+            left: 30%;
+            animation-delay: 3s;
+        }
+
+        .star:nth-child(8) {
+            top: 90%;
+            left: 68%;
+            animation-delay: 1.2s;
+        }
+
+        .star:nth-child(9) {
+            top: 52%;
+            left: 48%;
+            animation-delay: 2.2s;
+        }
+
+        .star:nth-child(10) {
+            top: 24%;
+            left: 93%;
+            animation-delay: .7s;
+        }
+
+
+        /* =========================================
+           CLOUD
+        ========================================== */
+
+        .cloud {
+            position: absolute;
+
+            width: 170px;
+            height: 55px;
+
+            left: -200px;
+            top: 20%;
+
+            border-radius: 50px;
+
+            background:
+                rgba(174,182,204,.025);
+
+            filter: blur(1px);
+
+            animation:
+                cloudMove
+                35s
+                linear
+                infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background:
+                rgba(174,182,204,.025);
+        }
+
+        .cloud::before {
+            width: 80px;
+            height: 80px;
+
+            left: 25px;
+            bottom: 5px;
+        }
+
+        .cloud::after {
+            width: 60px;
+            height: 60px;
+
+            right: 25px;
+            bottom: 5px;
+        }
+
+        .cloud.second {
+            top: 72%;
+
+            animation-duration: 45s;
+
+            animation-delay: -15s;
+
+            opacity: .6;
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================== */
+
+        main {
+            width: 100%;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding:
+                100px 22px;
+        }
+
+        .container {
+            width: 100%;
+
+            max-width: 760px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================== */
+
+        .moon {
+            font-size: 42px;
+
+            margin-bottom: 30px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                .3s
+                forwards;
+        }
+
+        .intro-title {
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(
+                    38px,
+                    7vw,
+                    62px
+                );
+
+            font-weight: 400;
+
+            line-height: 1.25;
+
+            margin-bottom: 25px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                .7s
+                forwards;
+        }
+
+        .intro-text {
+            color: #AEB6CC;
+
+            font-size: 16px;
+
+            font-weight: 300;
+
+            line-height: 1.9;
+
+            max-width: 520px;
+
+            margin: auto;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                1.1s
+                forwards;
+        }
+
+
+        /* =========================================
+           QUESTION
+        ========================================== */
+
+        .question {
+            margin-top: 75px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                1.8s
+                forwards;
+        }
+
+        .question h2 {
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-weight: 400;
+
+            font-size:
+                clamp(
+                    24px,
+                    5vw,
+                    34px
+                );
+
+            margin-bottom: 32px;
+        }
+
+
+        /* =========================================
+           FEELING BUTTONS
+        ========================================== */
+
+        .feelings {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+            max-width: 580px;
+
+            margin: auto;
+        }
+
+        .feeling {
+            padding:
+                18px 20px;
+
+            border:
+                1px solid
+                rgba(167,139,250,.15);
+
+            border-radius: 16px;
+
+            background:
+                rgba(24,32,57,.38);
+
+            color: #F4F1EA;
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition:
+                transform .4s ease,
+                background .4s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
+        }
+
+        .feeling:hover {
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(167,139,250,.08);
+
+            border-color:
+                rgba(167,139,250,.5);
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,.2);
+        }
+
+
+        /* =========================================
+           RESPONSE
+        ========================================== */
+
+        .response {
+            max-width: 580px;
+
+            margin:
+                35px auto 0;
+
+            padding:
+                28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(18,24,43,.55);
+
+            border:
+                1px solid
+                rgba(167,139,250,.12);
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            pointer-events: none;
+
+            transition:
+                opacity .6s ease,
+                transform .6s ease;
+        }
+
+        .response.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+            pointer-events: auto;
+        }
+
+        .response-text {
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            color: #F4F1EA;
+        }
+
+        .response-name {
+            color: #F0ABFC;
+        }
+
+
+        /* =========================================
+           RANDOM MESSAGE
+        ========================================== */
+
+        .random-area {
+            margin-top: 55px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                2.5s
+                forwards;
+        }
+
+        .random-button {
+            padding:
+                13px 24px;
+
+            border:
+                1px solid
+                rgba(240,171,252,.25);
+
+            border-radius: 50px;
+
+            background:
+                rgba(240,171,252,.025);
+
+            color: #F4F1EA;
+
+            font-size: 13px;
+
+            letter-spacing: .8px;
+
+            cursor: pointer;
+
+            transition:
+                all .4s ease;
+        }
+
+        .random-button:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(240,171,252,.08);
+
+            border-color:
+                rgba(240,171,252,.7);
+
+            box-shadow:
+                0 0 25px
+                rgba(240,171,252,.08);
+        }
+
+        .random-message {
+            min-height: 50px;
+
+            margin-top: 22px;
+
+            color: #AEB6CC;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            opacity: 0;
+
+            transition:
+                opacity .5s ease;
+        }
+
+        .random-message.show {
+            opacity: 1;
+        }
+
+
+        /* =========================================
+           NEXT
+        ========================================== */
+
+        .next {
+            margin-top: 80px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                3.2s
+                forwards;
+        }
+
+        .next-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                15px 28px;
+
+            border:
+                1px solid
+                rgba(167,139,250,.35);
+
+            border-radius: 50px;
+
+            background:
+                rgba(167,139,250,.03);
+
+            color: #F4F1EA;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            transition:
+                all .4s ease;
+        }
+
+        .next-button:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(167,139,250,.1);
+
+            border-color:
+                rgba(167,139,250,.8);
+
+            box-shadow:
+                0 0 30px
+                rgba(167,139,250,.12);
+        }
+
+
+        /* =========================================
+           PAGE TRANSITION
+        ========================================== */
+
+        .page-transition {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                #0B1020;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity .8s ease;
+        }
+
+        body.leaving
+        .page-transition {
+            opacity: 1;
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================== */
+
+        @keyframes pageEnter {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+        @keyframes twinkle {
+
+            from {
+                opacity: .15;
+
+                transform:
+                    scale(.7);
+            }
+
+            to {
+                opacity: .75;
+
+                transform:
+                    scale(1.5);
+            }
+
+        }
+
+        @keyframes glowMove {
+
+            0%,
+            100% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.25);
+            }
+
+        }
+
+        @keyframes cloudMove {
+
+            from {
+                transform:
+                    translateX(0);
+            }
+
+            to {
+                transform:
+                    translateX(calc(100vw + 400px));
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 600px) {
+
+            main {
+                padding:
+                    80px 20px;
+            }
+
+            .feelings {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .feeling {
+                padding:
+                    17px;
+            }
+
+            .question {
+                margin-top:
+                    60px;
+            }
+
+            .response {
+                padding:
+                    24px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="glow"></div>
+
+        <div class="stars">
+
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+
+        </div>
+
+        <div class="cloud"></div>
+
+        <div class="cloud second"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         CONTENT
+    ========================================== -->
+
+    <main>
+
+        <div class="container">
+
+
+            <!-- INTRO -->
+
+            <section>
+
+                <div class="moon">
+                    ☁️
+                </div>
+
+                <h1 class="intro-title">
+
+                    Ở đây một chút nhé.
+
+                </h1>
+
+                <p class="intro-text">
+
+                    Bạn không cần phải làm gì cả.
+
+                    <br>
+
+                    Không cần phải suy nghĩ về
+                    công việc,
+                    deadline hay ngày mai.
+
+                    <br>
+
+                    Chỉ cần ở đây một chút thôi,
+                    <span style="color:#F0ABFC;">
+                        baobei.
+                    </span>
+
+                </p>
+
+            </section>
+
+
+            <!-- QUESTION -->
+
+            <section class="question">
+
+                <h2>
+                    Hôm nay bạn cảm thấy thế nào?
+                </h2>
+
+
+                <div class="feelings">
+
+
+                    <button
+                        class="feeling"
+                        onclick="chooseFeeling('tired')"
+                    >
+                        😮‍💨 Mình mệt
+                    </button>
+
+
+                    <button
+                        class="feeling"
+                        onclick="chooseFeeling('sad')"
+                    >
+                        😔 Mình buồn
+                    </button>
+
+
+                    <button
+                        class="feeling"
+                        onclick="chooseFeeling('thinking')"
+                    >
+                        🧠 Mình nghĩ nhiều
+                    </button>
+
+
+                    <button
+                        class="feeling"
+                        onclick="chooseFeeling('comfort')"
+                    >
+                        ♡ Mình muốn được dỗ dành
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    class="response"
+                    id="response"
+                >
+
+                    <div
+                        class="response-text"
+                        id="responseText"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RANDOM MESSAGE -->
+
+            <section class="random-area">
+
+                <button
+                    class="random-button"
+                    onclick="newMessage()"
+                >
+
+                    ♡ Cho mình một câu nữa
+
+                </button>
+
+
+                <div
+                    class="random-message"
+                    id="randomMessage"
+                ></div>
+
+            </section>
+
+
+            <!-- NEXT -->
+
+            <section class="next">
+
+                <a
+                    href="letter.html"
+                    class="next-button"
+                    id="nextButton"
+                >
+
+                    Có một điều nữa mình muốn nói...
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- TRANSITION -->
+
+    <div class="page-transition"></div>
+
+
+    <script>
+
+
+        /* =========================================
+           FEELINGS
+        ========================================== */
+
+        const responses = {
+
+            tired: `
+                Vậy thì hôm nay đừng cố thêm nữa nhé.
+
+                <br><br>
+
+                Em bé mệt rồi thì cứ nghỉ một chút.
+                Mọi thứ có thể chờ.
+
+                <br><br>
+
+                <span class="response-name">
+                    Sam cũng cần được chăm sóc mà.
+                </span>
+            `,
+
+            sad: `
+                Không sao nếu hôm nay
+                em bé không vui.
+
+                <br><br>
+
+                Baobei không cần phải giả vờ
+                rằng mọi thứ đều ổn.
+
+                <br><br>
+
+                <span class="response-name">
+                    Cứ ở đây một chút nhé.
+                </span>
+            `,
+
+            thinking: `
+                Không phải chuyện gì cũng cần
+                được giải quyết ngay bây giờ.
+
+                <br><br>
+
+                Có những điều có thể để
+                ngày mai nghĩ tiếp.
+
+                <br><br>
+
+                <span class="response-name">
+                    Hôm nay cho đầu óc nghỉ nhé, Sam.
+                </span>
+            `,
+
+            comfort: `
+                Ngoan nào.
+
+                <br><br>
+
+                Hôm nay mệt rồi thì
+                nghỉ một chút nhé, em bé.
+
+                <br><br>
+
+                Không cần phải mạnh mẽ
+                mọi lúc đâu.
+
+                <br><br>
+
+                <span class="response-name">
+                    Có người vẫn đang rất quan tâm
+                    đến baobei đó.
+                </span>
+            `
+
+        };
+
+
+        function chooseFeeling(type) {
+
+            const response =
+                document.getElementById(
+                    "response"
+                );
+
+            const text =
+                document.getElementById(
+                    "responseText"
+                );
+
+
+            text.innerHTML =
+                responses[type];
+
+
+            response.classList.add(
+                "show"
+            );
+
+
+            response.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+
+        /* =========================================
+           RANDOM MESSAGES
+        ========================================== */
+
+        const messages = [
+
+            "Bạn không cần phải mạnh mẽ mọi lúc.",
+
+            "Hôm nay làm được đến đâu thì đến đó.",
+
+            "Một chút nghỉ ngơi cũng là một phần của hành trình.",
+
+            "Baobei đã cố gắng nhiều hơn mình nghĩ rồi.",
+
+            "Không sao nếu hôm nay chậm hơn một chút.",
+
+            "Em bé không cần phải hoàn hảo.",
+
+            "Có những ngày chỉ cần bình yên là đủ.",
+
+            "Sam à, nhớ dịu dàng với chính mình nhé.",
+
+            "Mệt thì nghỉ. Không cần phải xin phép ai cả.",
+
+            "Ngày mai mình lại tiếp tục. Còn hôm nay, cứ nghỉ một chút.",
+
+            "Mọi thứ rồi sẽ từng chút một trở nên nhẹ nhàng hơn.",
+
+            "Ngoan nhé, em bé. Hôm nay mình đã cố gắng đủ rồi."
+
+        ];
+
+
+        let lastMessage = -1;
+
+
+        function newMessage() {
+
+            const element =
+                document.getElementById(
+                    "randomMessage"
+                );
+
+
+            let index;
+
+            do {
+
+                index =
+                    Math.floor(
+                        Math.random()
+                        * messages.length
+                    );
+
+            } while (
+                index === lastMessage
+            );
+
+
+            lastMessage = index;
+
+
+            element.classList.remove(
+                "show"
+            );
+
+
+            setTimeout(() => {
+
+                element.textContent =
+                    messages[index];
+
+                element.classList.add(
+                    "show"
+                );
+
+            }, 250);
+
+        }
+
+
+        /* =========================================
+           PAGE TRANSITION
+        ========================================== */
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        nextButton.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                document.body
+                    .classList
+                    .add("leaving");
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "letter.html";
+
+                }, 800);
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
